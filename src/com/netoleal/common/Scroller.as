@@ -59,7 +59,7 @@ package com.netoleal.common {
 			_tracker.addEventListener( MouseEvent.MOUSE_DOWN, this.startDragging );
 			_stage = stage;
 			
-			stage.addEventListener( MouseEvent.MOUSE_UP, this.stopDragging );
+			//stage.addEventListener( MouseEvent.MOUSE_UP, this.stopDragging );
 			
 			if( _minusButton ) {			
 				_minusButton.addEventListener( MouseEvent.MOUSE_DOWN, minusDown );
@@ -185,7 +185,9 @@ package com.netoleal.common {
 			_yDif = _tracker.parent.mouseY - _tracker.y;
 			_xDif = _tracker.parent.mouseX - _tracker.x;
 			
+			_stage.addEventListener( MouseEvent.MOUSE_UP, this.stopDragging );
 			_stage.addEventListener( MouseEvent.MOUSE_MOVE, this.doDragging );
+			
 			this.dispatchEvent( new ScrollerEvent( ScrollerEvent.START_SCROLLING ) );
 		}
 		
