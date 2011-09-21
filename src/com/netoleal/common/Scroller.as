@@ -257,7 +257,9 @@ package com.netoleal.common {
 		
 		private function stopDragging( evt:MouseEvent = null ):void {
 			_dragging = false;
+			
 			_stage.removeEventListener( MouseEvent.MOUSE_MOVE, this.doDragging );
+			_stage.removeEventListener( MouseEvent.MOUSE_UP, this.stopDragging );
 			
 			this.dispatchEvent( new ScrollerEvent( ScrollerEvent.STOP_SCROLLING ) );
 		}
